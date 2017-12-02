@@ -1,6 +1,7 @@
 package co.devhack.todoapp.presentation.view.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
@@ -14,6 +15,7 @@ import co.devhack.todoapp.R;
 import co.devhack.todoapp.helpers.Utilities;
 import co.devhack.todoapp.presentation.presenter.SignUpContract;
 import co.devhack.todoapp.presentation.presenter.SignUpPresenter;
+import co.devhack.todoapp.presentation.view.activity.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,7 +24,7 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
 
     private SignUpContract.UserActionsListener mActionsListener;
     private TextInputLayout tilFullName, tilEmail, tilPassword;
-    private Button btnSignUp, btnAlrearyHaveAccount;
+    private Button btnSignUp, btnHaveAccount;
 
     public SignUpFragment() {
         // Required empty public constructor
@@ -43,12 +45,26 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
         tilEmail = (TextInputLayout) view.findViewById(R.id.tilEmail);
         tilPassword = (TextInputLayout) view.findViewById(R.id.tilPassword);
         btnSignUp = (Button) view.findViewById(R.id.btnSignUp);
-        btnAlrearyHaveAccount = (Button) view.findViewById(R.id.btnAlrearyHaveAccount);
+        btnHaveAccount = (Button) view.findViewById(R.id.btnHaveAccount);
 
+        //Asignar eventos a los Botones
         btnSignUp.setOnClickListener(this);
-        btnAlrearyHaveAccount.setOnClickListener(this);
+        btnHaveAccount.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.btnSignUp:
+                onSignUp();
+                break;
+            case R.id.btnHaveAccount:
+                goToLoginFragment();
+                break;
+        }
     }
 
     @Override
@@ -58,7 +74,8 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
 
     @Override
     public void goToMainActivity() {
-
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -108,8 +125,4 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
         }
     }
 
-    @Override
-    public void onClick(View view) {
-
-    }
 }
