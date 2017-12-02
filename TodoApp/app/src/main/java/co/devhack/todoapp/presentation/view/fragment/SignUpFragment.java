@@ -2,6 +2,7 @@ package co.devhack.todoapp.presentation.view.fragment;
 
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,7 +18,7 @@ import co.devhack.todoapp.presentation.presenter.SignUpPresenter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SignUpFragment extends Fragment implements SignUpContract.View{
+public class SignUpFragment extends Fragment implements SignUpContract.View, View.OnClickListener {
 
     private SignUpContract.UserActionsListener mActionsListener;
     private TextInputLayout tilFullName, tilEmail, tilPassword;
@@ -44,6 +45,9 @@ public class SignUpFragment extends Fragment implements SignUpContract.View{
         btnSignUp = (Button) view.findViewById(R.id.btnSignUp);
         btnAlrearyHaveAccount = (Button) view.findViewById(R.id.btnAlrearyHaveAccount);
 
+        btnSignUp.setOnClickListener(this);
+        btnAlrearyHaveAccount.setOnClickListener(this);
+
         return view;
     }
 
@@ -55,6 +59,11 @@ public class SignUpFragment extends Fragment implements SignUpContract.View{
     @Override
     public void goToMainActivity() {
 
+    }
+
+    @Override
+    public void showMessageError(Exception error) {
+        Snackbar.make(getView(), error.getMessage(), Snackbar.LENGTH_LONG).show();
     }
 
     public void onSignUp(){
@@ -97,5 +106,10 @@ public class SignUpFragment extends Fragment implements SignUpContract.View{
         }catch (Exception e){
 
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }
