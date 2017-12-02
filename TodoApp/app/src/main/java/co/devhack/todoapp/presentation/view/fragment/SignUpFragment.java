@@ -69,7 +69,7 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
 
     @Override
     public void goToLoginFragment() {
-        getChildFragmentManager().popBackStack();
+        getFragmentManager().popBackStack();
     }
 
     @Override

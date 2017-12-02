@@ -72,7 +72,7 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
                 onLogin();
                 break;
             case R.id.tvForgotPassword:
-                //TODO CREAR DIALOG PARA RECUPERAR CONTRASEÑA
+                goToRecoryPassword();
                 break;
         }
     }
@@ -80,13 +80,19 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
     @Override
     public void goToSignUpFragment() {
         AuthActivity authActivity = (AuthActivity) getActivity();
-        authActivity.replaceFragment(SignUpFragment.getInstance(),false);
+        authActivity.replaceFragment(SignUpFragment.getInstance(),true);
     }
 
     @Override
     public void goToMainActivity() {
         Intent intent = new Intent(getContext(), MainActivity.class);
         startActivity(intent);
+    }
+
+    public void goToRecoryPassword(){
+
+        RecoveryPasswordFragment recoveryPasswordFragment =  RecoveryPasswordFragment.getInstance();
+        recoveryPasswordFragment.show(getFragmentManager(),null);
     }
 
     @Override
