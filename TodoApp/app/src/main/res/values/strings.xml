@@ -18,4 +18,6 @@
     <string name="already_have_account">ya tengo una cuenta</string>
     <string name="recover_password">Recuperar Contraseña</string>
     <string name="recover">Recuperar</string>
+    <string name="is_required">es requerido</string>
+
 </resources>
