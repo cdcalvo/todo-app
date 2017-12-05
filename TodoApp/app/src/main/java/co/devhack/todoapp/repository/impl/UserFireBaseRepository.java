@@ -103,4 +103,21 @@ public class UserFireBaseRepository implements UserRepository {
                     }
                 });
     }
+
+    @Override
+    public void recoveryPassword(String email, final Callback<String> callback){
+
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            callback.success(task.getResult().toString());
+                        }else {
+                            callback.error(task.getException());
+                        }
+                    }
+                });
+    }
 }
