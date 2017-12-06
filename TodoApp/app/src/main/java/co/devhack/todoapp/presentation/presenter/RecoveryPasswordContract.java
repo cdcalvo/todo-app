@@ -7,14 +7,12 @@ package co.devhack.todoapp.presentation.presenter;
 public interface RecoveryPasswordContract {
 
     interface View {
+        void showErrorMessage(Exception error);
 
-        void showMessageSucces(String message);
-
-        void showMessageError(Exception error);
+        void showSuccessMessage();
     }
 
     interface UserActionsListener {
-
         void onRecoveryPassword(String email);
     }
 }

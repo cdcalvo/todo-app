@@ -6,15 +6,20 @@ package co.devhack.todoapp.presentation.presenter;
 
 public interface LoginContract {
 
-    interface View{
+    interface View {
         void goToSignUpFragment();
 
         void goToMainActivity();
 
         void showMessageError(Exception error);
+
+        void showProgress();
+
+        void hideProgress();
     }
 
-    interface UserActionsListener{
+    interface UserActionsListener {
         void onLogin(String email, String password, boolean remember);
     }
+
 }

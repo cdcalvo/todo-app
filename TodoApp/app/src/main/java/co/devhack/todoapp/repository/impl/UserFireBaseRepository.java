@@ -105,7 +105,7 @@ public class UserFireBaseRepository implements UserRepository {
     }
 
     @Override
-    public void recoveryPassword(String email, final Callback<String> callback){
+    public void recoveryPassword(String email, final Callback<Boolean> callback){
 
         mAuth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -113,7 +113,7 @@ public class UserFireBaseRepository implements UserRepository {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            callback.success(task.getResult().toString());
+                            callback.success(true);
                         }else {
                             callback.error(task.getException());
                         }

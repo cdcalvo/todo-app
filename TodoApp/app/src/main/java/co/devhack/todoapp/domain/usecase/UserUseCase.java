@@ -8,10 +8,9 @@ import co.devhack.todoapp.helpers.Callback;
  */
 
 public interface UserUseCase {
-
     void login(String email, String password, boolean remember, Callback<User> callback);
 
     void signUp(String fullName, String email, String password, Callback<User> callback);
 
-    void recoveryPassword(String email, Callback<String> callback);
+    void recoveryPassword(String email, Callback<Boolean> callback);
 }

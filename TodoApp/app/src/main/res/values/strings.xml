@@ -15,9 +15,14 @@
     <string name="create_account">Crear cuenta</string>
     <string name="full_name">Nombre completo</string>
     <string name="signup">Registrarme</string>
-    <string name="already_have_account">ya tengo una cuenta</string>
+    <string name="already_have_account">Ya tengo una cuenta</string>
     <string name="recover_password">Recuperar Contraseña</string>
     <string name="recover">Recuperar</string>
-    <string name="is_required">es requerido</string>
+    <string name="is_required">Es requerido</string>
+    <string name="recovery_email_sent">Hemos enviado un correo para que recuperes tu contraseña</string>
+    <string name="accept">Aceptar</string>
+    <string name="task_description">Texto de la tarea</string>
+    <string name="add_a_photo">Agrega una foto</string>
+    <string name="save">Guardar</string>
 
 </resources>

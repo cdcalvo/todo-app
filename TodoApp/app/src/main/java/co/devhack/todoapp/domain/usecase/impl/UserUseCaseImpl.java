@@ -57,11 +57,10 @@ public class UserUseCaseImpl implements UserUseCase {
     }
 
     @Override
-    public void recoveryPassword(String email, final Callback<String> callback) {
-
-        userRepository.recoveryPassword(email, new Callback<String>() {
+    public void recoveryPassword(String email, final Callback<Boolean> callback) {
+        userRepository.recoveryPassword(email, new Callback<Boolean>() {
             @Override
-            public void success(String result) {
+            public void success(Boolean result) {
                 callback.success(result);
             }
 

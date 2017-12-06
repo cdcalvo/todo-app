@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import co.devhack.todoapp.presentation.presenter.LoginContract;
 import co.devhack.todoapp.presentation.presenter.LoginPresenter;
 import co.devhack.todoapp.presentation.view.activity.AuthActivity;
 import co.devhack.todoapp.presentation.view.activity.MainActivity;
+import co.devhack.todoapp.presentation.view.dialog.RecoveryPasswordFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +32,7 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
     private TextView tvForgotPassword;
     private Switch swRemember;
     private Button btnStart, btnNotHaveAccount;
+    private ProgressBar pbProgress;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -46,6 +49,7 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
 
         mActionsListener = new LoginPresenter(this);
 
+        pbProgress = view.findViewById(R.id.pbProgress);
         tilEmail = (TextInputLayout) view.findViewById(R.id.tilEmail);
         tilPassword = (TextInputLayout) view.findViewById(R.id.tilPassword);
         tvForgotPassword = (TextView) view.findViewById(R.id.tvForgotPassword);
@@ -90,14 +94,25 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
     }
 
     public void goToRecoryPassword(){
-
         RecoveryPasswordFragment recoveryPasswordFragment =  RecoveryPasswordFragment.getInstance();
         recoveryPasswordFragment.show(getFragmentManager(),null);
+        //AuthActivity authActivity = (AuthActivity)getActivity();
+        //authActivity.replaceFragment(recoveryPasswordFragment, true);
     }
 
     @Override
     public void showMessageError(Exception error) {
         Snackbar.make(getView(), error.getMessage(), Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showProgress() {
+        pbProgress.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        pbProgress.setVisibility(View.INVISIBLE);
     }
 
     private void onLogin(){

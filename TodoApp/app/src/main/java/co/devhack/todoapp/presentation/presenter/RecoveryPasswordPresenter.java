@@ -21,15 +21,15 @@ public class RecoveryPasswordPresenter implements RecoveryPasswordContract.UserA
     @Override
     public void onRecoveryPassword(String email) {
 
-        userUseCase.recoveryPassword(email, new Callback<String>() {
+        userUseCase.recoveryPassword(email, new Callback<Boolean>() {
             @Override
-            public void success(String result) {
-                view.showMessageSucces(result);
+            public void success(Boolean result) {
+                view.showSuccessMessage();
             }
 
             @Override
             public void error(Exception error) {
-                view.showMessageError(error);
+                view.showErrorMessage(error);
             }
         });
     }
