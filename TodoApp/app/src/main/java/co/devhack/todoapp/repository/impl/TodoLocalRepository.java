@@ -42,12 +42,16 @@ public class TodoLocalRepository implements TodoRepository {
 
     @Override
     public void update(Todo todo) {
-        //TODO IMPLEMENTAR
+        AppDatabase db = AppDatabase.getInstance();
+        TodoDao todoDao = db.todoDao();
+        todoDao.update(todo);
     }
 
     @Override
     public void delete(Todo todo) {
-        //TODO IMPLEMETAR
+        AppDatabase db = AppDatabase.getInstance();
+        TodoDao todoDao = db.todoDao();
+        todoDao.delete(todo);
     }
 
     @Override
