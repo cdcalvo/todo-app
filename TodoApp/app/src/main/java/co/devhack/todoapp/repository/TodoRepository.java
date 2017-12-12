@@ -10,11 +10,11 @@ import co.devhack.todoapp.domain.model.Todo;
 
 public interface TodoRepository {
 
-    void insert(Todo todo);
+    Long insert(Todo todo) throws Exception;
 
     void update(Todo todo);
 
     void delete(Todo todo);
 
-    List<Todo> getAll();
+    List<Todo> getAll() throws Exception;
 }

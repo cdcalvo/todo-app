@@ -19,6 +19,7 @@ public class TodoUseCaseImpl implements TodoUseCase {
 
     public TodoUseCaseImpl() {
         this.todoRepository = new TodoLocalRepository();
+        //this.todoRepository = new TodoRestRepository();
     }
 
     @Override

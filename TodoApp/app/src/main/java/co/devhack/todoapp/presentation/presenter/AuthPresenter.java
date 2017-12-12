@@ -14,8 +14,9 @@ public class AuthPresenter implements AuthContract.UserActionsListener {
 
     @Override
     public void goToFirstFragment() {
+
         view.goToLoginFragment();
 
-        //view.goToMainActivity();
+        //view.goMainActivity();
     }
 }
