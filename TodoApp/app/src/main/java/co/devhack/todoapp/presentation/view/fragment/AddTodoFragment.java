@@ -62,6 +62,7 @@ public class AddTodoFragment extends Fragment implements AddTodoContract.View, V
         btnSelectDate.setOnClickListener(this);
         ivTakePhoto.setOnClickListener(this);
         btnSave.setOnClickListener(this);
+        fab.setOnClickListener(this);
 
         return view;
     }
